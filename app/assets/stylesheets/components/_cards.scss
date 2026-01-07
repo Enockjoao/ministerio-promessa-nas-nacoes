@@ -1,0 +1,98 @@
+.about-card {
+    background: var(--primary-dark);
+    padding: 50px 35px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(130, 125, 125, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.about-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+}
+.about-card:hover::before {
+    opacity: 1;
+}
+.about-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    color: var(--primary-dark);
+}
+.about-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.about-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+.ministries {
+    padding: 120px 30px;
+    background: var(--primary-dark);
+}
+.ministry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 25px;
+}
+.ministry-card {
+    position: relative;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.ministry-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.ministry-card:hover img {
+    transform: scale(1.1);
+}
+.ministry-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px;
+    background: linear-gradient(transparent, rgba(26, 26, 26, 0.95));
+    transition: all 0.3s ease;
+}
+.ministry-card:hover .ministry-overlay {
+    background: linear-gradient(transparent, rgba(201, 169, 98, 0.9));
+}
+.ministry-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+.ministry-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.ministry-card:hover p {
+    color: var(--primary-dark);
+}
