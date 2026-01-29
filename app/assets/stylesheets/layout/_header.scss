@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
 header {
         position: fixed;
         width: 100%;
@@ -18,9 +20,35 @@ header {
         flex-direction: column;
         align-items: center;
     }
+
+    header.scrolled .logo-container {
+    max-height: 100px;
+    opacity: 1;
+    }
+
+    .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin: 0;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    }
     .logo-container {
         text-align: center;
         margin-bottom: 15px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
     }
     .logo-header {
         height: 70px;
@@ -80,3 +108,83 @@ header {
     .header-login i {
         font-size: 1.2rem;
     }
+
+    // ===== MENU MOBILE BOOTSTRAP =====
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    gap: 5px;
+    padding: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    
+    &:hover, &:focus {
+        transform: scale(1.1);
+        background: var(--gold);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    
+    .hamburger-line {
+        display: block;
+        width: 22px;
+        height: 3px;
+        background: var(--primary-dark);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+    
+    .header-container {
+        position: relative;
+    }
+    
+    #navMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 5px;
+        
+        li a {
+            display: block;
+            text-align: center;
+            padding: 12px 20px;
+        }
+    }
+    
+    .header-login {
+        display: none;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+}

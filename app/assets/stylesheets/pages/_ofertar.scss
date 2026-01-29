@@ -1,0 +1,80 @@
+.ofertar-section {
+    padding: 100px 0;
+    background: var(--primary-dark);
+    text-align: center;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-bottom: 50px;
+    }
+
+    .ofertar-image-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .ofertar-image {
+        max-width: 500px;
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+
+    .ofertar-text {
+        max-width: 700px;
+        margin: 0 auto;
+
+        .verse {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .verse-reference {
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+    }
+}
+
+// Responsivo
+@media (max-width: 768px) {
+    .ofertar-section {
+        padding: 60px 0;
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .ofertar-image {
+            max-width: 350px;
+        }
+
+        .ofertar-text .verse {
+            font-size: 1.1rem;
+        }
+    }
+}

@@ -1,22 +1,31 @@
 <header id="header">
-        <div class="header-container">
-            <div class="logo-container">
-                <%= image_tag "globo-mpn.png", alt: "Ministério Promessa nas Nações", class: "logo-header mb-3" %>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#" class="active">Início</a></li>
-                    <li><a href="#">Quem Somos</a></li>
-                    <li><a href="#">Ministérios</a></li>
-                    <li><a href="#">Mensagens</a></li>
-                    <li><a href="#">Agenda</a></li>
-                    <li><a href="#">Ofertar</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </nav>
-            <a href="#" class="header-login">
-                <i class="fas fa-user-circle"></i>
-                Login
-            </a>
+    <div class="header-container">
+        <div class="logo-container">
+            <h1 class="logo-text">PROMESSA<br>NAS NAÇÕES</h1>
         </div>
-        </div>
-    </header>
+        
+        <!-- Botão hambúrguer Bootstrap -->
+        <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <nav class="collapse navbar-collapse" id="navMenu">
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Início</a></li>
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#ministerios">Ministérios</a></li>
+                <li><a href="#mensagens">Mensagens</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#ofertar">Ofertar</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        
+        <a href="#" class="header-login">
+            <i class="fas fa-user-circle"></i>
+            Login
+        </a>
+    </div>
+</header>

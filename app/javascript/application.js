@@ -31,3 +31,16 @@ window.addEventListener('scroll', function() {
             particle.style.animationDuration = 15 + Math.random() * 10 + 's';
             particlesContainer.appendChild(particle);
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('header');
+    const scrollThreshold = 300;
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > scrollThreshold) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+});

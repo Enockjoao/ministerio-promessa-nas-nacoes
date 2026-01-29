@@ -341,7 +341,7 @@ DEPENDENCIES
   bundler-audit
   cssbundling-rails
   debug
-  dotenv-rails (~> 3.2)
+  dotenv-rails
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
