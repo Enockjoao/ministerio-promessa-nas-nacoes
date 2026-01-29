@@ -1,28 +1,48 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
 import * as bootstrap from "bootstrap"
 
-window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-                backToTop.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                backToTop.classList.remove('visible');
-            }
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('header');
+    const backToTop = document.getElementById('backToTop');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const particlesContainer = document.getElementById('particles');
 
-        // Back to top
-        document.getElementById('backToTop').addEventListener('click', function() {
+    // Scroll - header e back to top
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            if (header) header.classList.add('scrolled');
+            if (backToTop) backToTop.classList.add('visible');
+        } else {
+            if (header) header.classList.remove('scrolled');
+            if (backToTop) backToTop.classList.remove('visible');
+        }
+    });
+
+    // Back to top
+    if (backToTop) {
+        backToTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    }
 
-        // Create particles
-        const particlesContainer = document.getElementById('particles');
+    // Menu mobile toggle
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('show');
+            });
+        });
+    }
+
+    // Create particles
+    if (particlesContainer) {
         for (let i = 0; i < 30; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
@@ -31,16 +51,5 @@ window.addEventListener('scroll', function() {
             particle.style.animationDuration = 15 + Math.random() * 10 + 's';
             particlesContainer.appendChild(particle);
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-    const header = document.getElementById('header');
-    const scrollThreshold = 300;
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > scrollThreshold) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    }
 });
