@@ -1,13 +1,10 @@
-// ==============================================
-// Contato Section
-// ==============================================
 
 .contato-section {
   padding: 80px 0;
   background: linear-gradient(180deg, var(--primary-dark) 0%, #151515 100%);
 }
 
-// Header
+
 .contato-header {
   margin-bottom: 50px;
 
@@ -182,4 +179,17 @@
   i {
     font-size: 1.1rem;
   }
+}
+
+.about::before,
+.schedule::before,
+.cta::before
+.contato-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }

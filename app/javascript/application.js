@@ -10,7 +10,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-links a');
     const particlesContainer = document.getElementById('particles');
 
-    // Scroll - header e back to top
+    // ===== HERO SLIDER COM TEMPORIZADOR =====
+    const heroSlides = document.querySelectorAll('.hero-slide');
+
+    if (heroSlides.length > 1) {
+        let currentSlide = 0;
+        const slideInterval = 6000; 
+
+        function nextSlide() {
+            // Remove 'active' do slide atual
+            heroSlides[currentSlide].classList.remove('active');
+            
+            // Avança para o próximo (volta ao início se for o último)
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            
+            // Adiciona 'active' ao novo slide
+            heroSlides[currentSlide].classList.add('active');
+        }
+
+        // Inicia o temporizador automático
+        setInterval(nextSlide, slideInterval);
+    }
+
+    // ===== SCROLL - HEADER E BACK TO TOP =====
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
             if (header) header.classList.add('scrolled');
@@ -21,14 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Back to top
+    // ===== BACK TO TOP =====
     if (backToTop) {
         backToTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // Menu mobile toggle
+    // ===== MENU MOBILE TOGGLE =====
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', function() {
             navMenu.classList.toggle('show');
@@ -41,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Create particles
+    // ===== CREATE PARTICLES =====
     if (particlesContainer) {
         for (let i = 0; i < 30; i++) {
             const particle = document.createElement('div');
