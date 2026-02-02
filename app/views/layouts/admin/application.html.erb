@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - MPN</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "administrate/application", media: "all" %>
+  <%= javascript_include_tag "administrate/application" %>
+</head>
+<body>
+  <div class="admin-header" style="background: #1a1a1a; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #c9a962;">
+    <div style="color: #c9a962; font-weight: bold; font-size: 1.2rem;">
+      MPN Admin
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <span style="color: #fff;"><%= current_user.email %></span>
+      <span style="color: #a0a0a0; font-size: 0.85rem;">(<%= current_user.role.capitalize %>)</span>
+      <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, style: "background: #c9a962; color: #1a1a1a; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: 600;" do %>
+        <i class="fa fa-sign-out-alt"></i> Sair
+      <% end %>
+    </div>
+  </div>
+
+  <%= yield %>
+</body>
+</html>

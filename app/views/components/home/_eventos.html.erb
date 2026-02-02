@@ -1,0 +1,57 @@
+<!-- ===== SEÇÃO EVENTOS NA HOME ===== -->
+<section class="eventos-home" id="eventos">
+    <div class="section-container">
+        <div class="section-header">
+            <p class="section-tag">Agenda</p>
+            <h2 class="section-title">Próximos Eventos</h2>
+        </div>
+
+        <% if @eventos_destaque.any? %>
+            <div class="eventos-home-grid">
+                <% @eventos_destaque.each do |evento| %>
+                    <div class="evento-card-home">
+                        <div class="evento-card-imagem">
+                            <% if evento.imagem.attached? %>
+                                <%= image_tag evento.imagem, alt: evento.titulo %>
+                            <% else %>
+                                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600" alt="<%= evento.titulo %>">
+                            <% end %>
+                            <div class="evento-data-badge">
+                                <span class="dia"><%= evento.dia_badge %></span>
+                                <span class="mes"><%= evento.mes_badge %></span>
+                            </div>
+                            <% if evento.recorrente? %>
+                                <span class="evento-status-badge recorrente">Toda Semana</span>
+                            <% end %>
+                        </div>
+                        <div class="evento-card-info">
+                            <h3><%= evento.titulo %></h3>
+                            <p class="evento-descricao-home"><%= truncate(evento.descricao, length: 80) %></p>
+                            <div class="evento-detalhes-home">
+                                <span><i class="fas fa-calendar"></i> <%= evento.data_formatada %></span>
+                                <% if evento.horario.present? %>
+                                    <span><i class="fas fa-clock"></i> <%= evento.horario.strftime('%H:%M') %></span>
+                                <% end %>
+                            </div>
+                            <%= link_to evento_path(evento), class: "evento-btn-home" do %>
+                                Saiba mais <i class="fas fa-arrow-right"></i>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="eventos-home-cta">
+                <%= link_to eventos_path, class: "btn btn-outline" do %>
+                    Ver Todos os Eventos <i class="fas fa-calendar-alt"></i>
+                <% end %>
+            </div>
+        <% else %>
+            <div class="sem-eventos-home">
+                <i class="fas fa-calendar-times"></i>
+                <p>Nenhum evento programado no momento.</p>
+                <p>Fique atento às nossas redes sociais!</p>
+            </div>
+        <% end %>
+    </div>
+</section>

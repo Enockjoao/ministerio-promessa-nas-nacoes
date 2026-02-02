@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+<!-- 
+ <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-content">
+            <div class="ministry-badge">
+                <i class="fas fa-music"></i>
+                <span>Ministério de Louvor</span>
+            </div>
+            <h1 class="page-hero-title">
+                Nação <span>Praise</span>
+            </h1>
+            <p class="page-hero-description">
+                Levando a presença de Deus através da adoração genuína, 
+                onde cada acorde e cada voz se unem para exaltar o nome do Senhor.
+            </p>
+        </div>
+    </section>
+HERO 
+<section class="ministerio-hero">
+    <div class="ministerio-hero-bg" style="background-image: url('<%= asset_path("ministerios/#{@slug}.jpeg") %>')"></div>
+    <div class="ministerio-hero-content">
+        <div class="ministry-badge">
+            <i class="fas <%= @ministerio[:icone] %>"></i>
+            <span><%= @ministerio[:categoria] %></span>
+        </div>
+        <h1><%= @ministerio[:nome] %></h1>
+        <p><%= @ministerio[:descricao] %></p>
+    </div>
+</section>
+
+
+<!-- CONTEÚDO ESPECÍFICO
+<%= render "ministerios/#{@slug}" rescue render "ministerios/default" %>
+ -->
+<%= render "shared/footer" %>

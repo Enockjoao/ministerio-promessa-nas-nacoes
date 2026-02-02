@@ -1,0 +1,161 @@
+<%= render "shared/header" %>
+
+<!-- ===== HERO DA PÁGINA ===== -->
+<section class="page-hero-eventos">
+    <div class="hero-content">
+        <h1>Nossos <span>Eventos</span></h1>
+        <p>Momentos especiais de comunhão e adoração</p>
+    </div>
+</section>
+
+<!-- ===== EVENTOS FUTUROS ===== -->
+<section class="eventos-section">
+    <div class="eventos-container">
+
+        <% if @proximo_evento.present? %>
+            <!-- EVENTO EM DESTAQUE (PRÓXIMO) -->
+            <div class="evento-destaque">
+                <div class="destaque-imagem">
+                    <% if @proximo_evento.imagem.attached? %>
+                        <%= image_tag @proximo_evento.imagem, alt: @proximo_evento.titulo %>
+                    <% else %>
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800" alt="<%= @proximo_evento.titulo %>">
+                    <% end %>
+                </div>
+                <div class="destaque-info">
+                    <h2><%= @proximo_evento.titulo %></h2>
+                    <p><%= @proximo_evento.descricao %></p>
+                    <div class="destaque-detalhes">
+                        <div class="destaque-detalhe">
+                            <i class="fas fa-calendar"></i>
+                            <span><%= @proximo_evento.data_formatada %></span>
+                        </div>
+                        <% if @proximo_evento.horario.present? %>
+                            <div class="destaque-detalhe">
+                                <i class="fas fa-clock"></i>
+                                <span><%= @proximo_evento.horario.strftime('%H:%M') %></span>
+                            </div>
+                        <% end %>
+                        <% if @proximo_evento.local.present? %>
+                            <div class="destaque-detalhe">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span><%= @proximo_evento.local %></span>
+                            </div>
+                        <% end %>
+                    </div>
+                    <%= link_to evento_path(@proximo_evento), class: "btn btn-primary" do %>
+                        <i class="fas fa-info-circle"></i>
+                        Saiba Mais
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+
+        <% if @eventos_futuros.any? %>
+            <!-- GRID DE OUTROS EVENTOS -->
+            <div class="section-header" style="margin-bottom: 40px;">
+                <p class="section-tag">Agenda</p>
+                <h2 class="section-title">Outros Eventos</h2>
+            </div>
+
+            <div class="eventos-grid">
+                <% @eventos_futuros.each do |evento| %>
+                    <div class="evento-card">
+                        <div class="evento-imagem">
+                            <% if evento.imagem.attached? %>
+                                <%= image_tag evento.imagem, alt: evento.titulo %>
+                            <% else %>
+                                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600" alt="<%= evento.titulo %>">
+                            <% end %>
+                            <div class="evento-data-badge">
+                                <span class="dia"><%= evento.dia_badge %></span>
+                                <span class="mes"><%= evento.mes_badge %></span>
+                            </div>
+                            <% if evento.recorrente? %>
+                                <span class="evento-status-badge recorrente">Toda Semana</span>
+                            <% end %>
+                        </div>
+                        <div class="evento-info">
+                            <h3 class="evento-titulo"><%= evento.titulo %></h3>
+                            <p class="evento-descricao"><%= truncate(evento.descricao, length: 120) %></p>
+                            <div class="evento-detalhes">
+                                <div class="evento-detalhe">
+                                    <i class="fas fa-calendar"></i>
+                                    <span><%= evento.data_formatada %></span>
+                                </div>
+                                <% if evento.horario.present? %>
+                                    <div class="evento-detalhe">
+                                        <i class="fas fa-clock"></i>
+                                        <span><%= evento.horario.strftime('%H:%M') %></span>
+                                    </div>
+                                <% end %>
+                                <% if evento.local.present? %>
+                                    <div class="evento-detalhe">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span><%= evento.local %></span>
+                                    </div>
+                                <% end %>
+                            </div>
+                            <%= link_to evento_path(evento), class: "evento-btn" do %>
+                                Saiba mais
+                                <i class="fas fa-arrow-right"></i>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+
+        <% if @proximo_evento.blank? && @eventos_futuros.empty? %>
+            <div class="sem-eventos">
+                <i class="fas fa-calendar-times"></i>
+                <h3>Nenhum evento programado</h3>
+                <p>Fique atento às nossas redes sociais para novidades!</p>
+            </div>
+        <% end %>
+
+    </div>
+</section>
+
+<% if @eventos_passados.any? %>
+    <!-- ===== EVENTOS PASSADOS ===== -->
+    <section class="eventos-passados">
+        <div class="eventos-container">
+            <div class="section-header">
+                <p class="section-tag">Relembre</p>
+                <h2 class="section-title">Eventos Anteriores</h2>
+            </div>
+
+            <div class="eventos-grid">
+                <% @eventos_passados.each do |evento| %>
+                    <div class="evento-card">
+                        <div class="evento-imagem">
+                            <% if evento.imagem.attached? %>
+                                <%= image_tag evento.imagem, alt: evento.titulo %>
+                            <% else %>
+                                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600" alt="<%= evento.titulo %>">
+                            <% end %>
+                            <div class="evento-data-badge">
+                                <span class="dia"><%= evento.dia_badge %></span>
+                                <span class="mes"><%= evento.mes_badge %></span>
+                            </div>
+                        </div>
+                        <div class="evento-info">
+                            <h3 class="evento-titulo"><%= evento.titulo %></h3>
+                            <p class="evento-descricao"><%= truncate(evento.descricao, length: 100) %></p>
+                            <div class="evento-detalhes">
+                                <div class="evento-detalhe">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Evento realizado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </section>
+<% end %>
+
+<%= render "shared/footer" %>
+<%= render "shared/back_to_top" %>

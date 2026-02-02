@@ -18,17 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const slideInterval = 6000; 
 
         function nextSlide() {
-            // Remove 'active' do slide atual
             heroSlides[currentSlide].classList.remove('active');
-            
-            // Avança para o próximo (volta ao início se for o último)
             currentSlide = (currentSlide + 1) % heroSlides.length;
-            
-            // Adiciona 'active' ao novo slide
             heroSlides[currentSlide].classList.add('active');
         }
 
-        // Inicia o temporizador automático
         setInterval(nextSlide, slideInterval);
     }
 
@@ -43,23 +37,72 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ===== BACK TO TOP =====
-    if (backToTop) {
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    // ===== SCROLL SPY - DESTACAR MENU ATIVO =====
+    const sections = document.querySelectorAll('section[id]');
+    
+    function scrollSpy() {
+        const scrollPosition = window.scrollY + 150; // Offset para ativar um pouco antes
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                // Remove 'active' de todos os links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Adiciona 'active' ao link correspondente
+                const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
         });
+
+        // Se estiver no topo, ativa o "Início"
+        if (window.scrollY < 100) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const homeLink = document.querySelector('.nav-links a[href="#hero"]');
+            if (homeLink) homeLink.classList.add('active');
+        }
     }
+
+    // Executa o scroll spy no scroll e no carregamento
+    window.addEventListener('scroll', scrollSpy);
+    scrollSpy(); // Executa uma vez ao carregar
+
+    // ===== SMOOTH SCROLL NOS LINKS DO MENU =====
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Só aplica smooth scroll para links com #
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80; // Desconta altura do header
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Fecha o menu mobile
+            if (navMenu) navMenu.classList.remove('show');
+        });
+    });
+
 
     // ===== MENU MOBILE TOGGLE =====
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', function() {
             navMenu.classList.toggle('show');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('show');
-            });
         });
     }
 

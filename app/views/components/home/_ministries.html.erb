@@ -1,49 +1,99 @@
 <section class="ministries" id="ministerios">
-        <div class="section-container">
-            <div class="section-header">
-                <p class="section-tag">Faça Parte</p>
-                <h2 class="section-title">Nossos Ministérios</h2>
-            </div>
-            <div class="ministry-grid">
-                <div class="ministry-card">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400" alt="Louvor">
-                    <div class="ministry-overlay">
-                        <h4>Nação Praise</h4>
-                        <p>Equipe de músicos e cantores</p>
-                    </div>
+    <div class="section-container">
+        <div class="section-header">
+            <p class="section-tag">Faça Parte</p>
+            <h2 class="section-title">Nossos Ministérios</h2>
+        </div>
+        <div class="ministry-grid">
+            <!-- Louvor -->
+            <%= link_to ministerio_path('nacao-praise'), class: "ministry-card" do %>
+                <%= image_tag "ministerios/nacao-praise.jpeg", alt: "Ministério Nação Praise" %>
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Louvor</span>
+                    <h4>Nação Praise</h4>
+                    <p>Equipe de músicos e cantores</p>
                 </div>
-                <div class="ministry-card">
-                    <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=400" alt="Jovens">
-                    <div class="ministry-overlay">
-                        <h4>Braseiros</h4>
-                        <p>Jovens apaixonados por Jesus</p>
-                    </div>
-                </div>
-                <div class="ministry-card">
-                    <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400" alt="Crianças">
-                    <div class="ministry-overlay">
-                        <h4>Kids</h4>
-                        <p>Ensino criativo para crianças</p>
-                    </div>
-                </div>
-                <div class="ministry-card">
-                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400" alt="Missões">
-                    <div class="ministry-overlay">
-                        <h4>Luz Do Mundo</h4>
-                        <p>Levando esperança às nações</p>
-                    </div>
-                </div>
-                <div class="ministry-card">
-                    <%= image_tag "jesusEmCasa.jpeg", alt: "Jesus Em Casa" %>
-                    <div class="ministry-overlay">
-                    </div>
-                </div>
-                 <div class="ministry-card">
-                    <%= image_tag "nacaodance.jpeg", alt: "Nação Dance" %>
-                    <div class="ministry-overlay">
-                    </div>
+            <% end %>
+
+            <!-- Dança -->
+            <div class="ministry-card">
+                <%= image_tag "nacaodance.jpeg", alt: "Nação Dance" %>
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Dança</span>
+                    <h4>Nação Dance</h4>
+                    <p>Adoração através da dança</p>
                 </div>
             </div>
+
+            <!-- Ministério Infantil -->
+            <div class="ministry-card">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400" alt="Kids">
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Infantil</span>
+                    <h4>Kids</h4>
+                    <p>Ensino criativo para crianças</p>
+                </div>
+            </div>
+
+            <!-- Evangelismo -->
+            <div class="ministry-card">
+                <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400" alt="Luz do Mundo">
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Evangelismo</span>
+                    <h4>Luz do Mundo</h4>
+                    <p>Levando esperança às nações</p>
+                </div>
+            </div>
+
+            <!-- Células -->
+            <div class="ministry-card">
+                <%= image_tag "jesusEmCasa.jpeg", alt: "Jesus em Casa" %>
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Células</span>
+                    <h4>Jesus em Casa</h4>
+                    <p>Comunhão nos lares</p>
+                </div>
+            </div>
+
+            <!-- Jovens -->
+            <div class="ministry-card">
+                <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=400" alt="Braseiros">
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Jovens</span>
+                    <h4>Braseiros</h4>
+                    <p>Jovens apaixonados por Jesus</p>
+                </div>
+            </div>
+
+            <!-- Mídia -->
+            <div class="ministry-card">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400" alt="Mídia">
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Mídia</span>
+                    <h4>Mídia</h4>
+                    <p>Comunicação e transmissões</p>
+                </div>
+            </div>
+
+            <!-- Intercessão -->
+            <div class="ministry-card">
+                <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=400" alt="Intercessão">
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Oração</span>
+                    <h4>Intercessão</h4>
+                    <p>Cobertura espiritual da igreja</p>
+                </div>
+            </div>
+
+            <!-- Acolhimento -->
+            <div class="ministry-card">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400" alt="Acolhimento">
+                <div class="ministry-overlay">
+                    <span class="ministry-tag">Portaria</span>
+                    <h4>Acolhimento</h4>
+                    <p>Recepção e boas-vindas</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>

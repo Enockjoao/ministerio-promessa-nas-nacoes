@@ -24,12 +24,12 @@
 
         .btn-outline {
             background: transparent;
-            color: var(--text-light);
+            color: var(--gold);
             border: 2px solid var(--accent);
         }
 
         .btn-outline:hover {
             background: var(--accent);
-            color: var(--primary-dark);
+            color: var(--gold);
             transform: translateY(-3px);
         }

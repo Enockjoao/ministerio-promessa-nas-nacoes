@@ -1,0 +1,483 @@
+/* ===== EVENTOS NA HOME ===== */
+.eventos-home {
+    padding: 120px 30px;
+    background: var(--primary-dark);
+    position: relative;
+}
+
+.eventos-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.eventos-home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.evento-card-home {
+    background: var(--secondary-dark);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 169, 98, 0.1);
+    transition: all 0.4s ease;
+}
+
+.evento-card-home:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.evento-card-imagem {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.evento-card-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.evento-card-home:hover .evento-card-imagem img {
+    transform: scale(1.05);
+}
+
+.evento-data-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--gold);
+    color: var(--primary-dark);
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.evento-data-badge .dia {
+    font-size: 1.6rem;
+    line-height: 1;
+    display: block;
+}
+
+.evento-data-badge .mes {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.evento-card-info {
+    padding: 25px;
+}
+
+.evento-card-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.evento-descricao-home {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.evento-detalhes-home {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.evento-detalhes-home span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.evento-detalhes-home i {
+    color: var(--gold);
+}
+
+.evento-btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.evento-btn-home:hover {
+    color: var(--gold-light);
+    gap: 12px;
+}
+
+.eventos-home-cta {
+    text-align: center;
+}
+
+.sem-eventos-home {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.sem-eventos-home i {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.sem-eventos-home p {
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+/* ===== PÁGINA DE EVENTOS ===== */
+.page-hero-eventos {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        rgba(26, 26, 26, 0.95) 0%, 
+        rgba(45, 45, 45, 0.9) 50%,
+        rgba(26, 26, 26, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1920') center/cover;
+    text-align: center;
+    position: relative;
+}
+
+.page-hero-eventos::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.page-hero-eventos h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.page-hero-eventos h1 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.page-hero-eventos p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+/* Evento Destaque */
+.evento-destaque {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, rgba(201, 169, 98, 0.1) 100%);
+    border-radius: 30px;
+    padding: 50px;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    border: 1px solid rgba(201, 169, 98, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.evento-destaque::before {
+    content: 'PRÓXIMO EVENTO';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--gold);
+    color: var(--primary-dark);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.destaque-imagem {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 400px;
+}
+
+.destaque-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destaque-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.destaque-info h2 span {
+    color: var(--gold);
+    font-style: italic;
+    display: block;
+}
+
+.destaque-info > p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.destaque-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.destaque-detalhe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: var(--text-light);
+}
+
+.destaque-detalhe i {
+    color: var(--gold);
+    font-size: 1.1rem;
+}
+
+/* Grid de eventos página */
+.eventos-section {
+    padding: 80px 30px;
+    background: var(--primary-dark);
+}
+
+.eventos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.evento-card {
+    background: var(--secondary-dark);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 169, 98, 0.1);
+    transition: all 0.4s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.evento-imagem {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.evento-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.evento-card:hover .evento-imagem img {
+    transform: scale(1.05);
+}
+
+.evento-info {
+    padding: 25px;
+}
+
+.evento-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.evento-descricao {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.evento-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.evento-detalhe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.evento-detalhe i {
+    color: var(--gold);
+    width: 20px;
+}
+
+.evento-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.evento-btn:hover {
+    background: var(--gold);
+    color: var(--primary-dark);
+}
+
+/* Eventos Passados */
+.eventos-passados {
+    padding: 80px 30px;
+    background: var(--secondary-dark);
+    position: relative;
+}
+
+.eventos-passados::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.eventos-passados .evento-card {
+    opacity: 0.7;
+}
+
+.eventos-passados .evento-card:hover {
+    opacity: 1;
+}
+
+/* Sem eventos */
+.sem-eventos {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.sem-eventos i {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.sem-eventos h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.sem-eventos p {
+    color: var(--text-muted);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .evento-destaque {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .destaque-imagem {
+        height: 300px;
+    }
+
+    .destaque-info h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero-eventos h1 {
+        font-size: 2.5rem;
+    }
+
+    .eventos-grid,
+    .eventos-home-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destaque-detalhes {
+        flex-direction: column;
+    }
+
+    .eventos-home {
+        padding: 80px 20px;
+    }
+}
+
+.evento-status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.evento-status-badge.recorrente {
+    background: #27ae60;
+    color: white;
+}

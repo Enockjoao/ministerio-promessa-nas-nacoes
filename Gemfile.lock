@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/thoughtbot/administrate.git
+  revision: f215c65d65760c104787d302e9a9f71b78755f6d
+  branch: main
+  specs:
+    administrate (1.0.0)
+      actionpack (>= 6.0, < 9.0)
+      actionview (>= 6.0, < 9.0)
+      activerecord (>= 6.0, < 9.0)
+      kaminari (~> 1.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,8 +86,12 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    administrate-field-active_storage (1.0.6)
+      administrate (>= 0.2.2)
+      rails (>= 7.0)
     ast (2.4.3)
     base64 (0.3.0)
+    bcrypt (3.1.21)
     bcrypt_pbkdf (1.1.2)
     bigdecimal (4.0.1)
     bindex (0.8.1)
@@ -97,6 +112,12 @@ GEM
     debug (1.11.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     dotenv (3.2.0)
     dotenv-rails (3.2.0)
       dotenv (= 3.2.0)
@@ -142,6 +163,18 @@ GEM
       sshkit (>= 1.23.0, < 2.0)
       thor (~> 1.3)
       zeitwerk (>= 2.6.18, < 3.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -180,6 +213,7 @@ GEM
     nio4r (2.7.5)
     nokogiri (1.19.0-x86_64-linux-gnu)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.10.0)
@@ -247,6 +281,9 @@ GEM
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
+    responders (3.2.0)
+      actionpack (>= 7.0)
+      railties (>= 7.0)
     rubocop (1.82.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -320,6 +357,8 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -336,11 +375,14 @@ PLATFORMS
   x86_64-linux-gnu
 
 DEPENDENCIES
+  administrate!
+  administrate-field-active_storage (~> 1.0)
   bootsnap
   brakeman
   bundler-audit
   cssbundling-rails
   debug
+  devise (~> 4.9)
   dotenv-rails
   image_processing (~> 1.2)
   importmap-rails

@@ -1,0 +1,53 @@
+<%= render "shared/header" %>
+
+<!-- ===== HERO DA PÁGINA ===== -->
+<section class="page-hero-eventos">
+    <div class="hero-content">
+        <h1><%= @evento.titulo %></h1>
+        <p><%= I18n.l(@evento.data_evento, format: :long) %></p>
+    </div>
+</section>
+
+<!-- ===== DETALHES DO EVENTO ===== -->
+<section class="eventos-section">
+    <div class="eventos-container">
+        <div class="evento-destaque">
+            <div class="destaque-imagem">
+                <% if @evento.imagem.attached? %>
+                    <%= image_tag @evento.imagem, alt: @evento.titulo %>
+                <% else %>
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800" alt="<%= @evento.titulo %>">
+                <% end %>
+            </div>
+            <div class="destaque-info">
+                <h2><%= @evento.titulo %></h2>
+                <p><%= @evento.descricao %></p>
+                <div class="destaque-detalhes">
+                    <div class="destaque-detalhe">
+                        <i class="fas fa-calendar"></i>
+                        <span><%= I18n.l(@evento.data_evento, format: :long) %></span>
+                    </div>
+                    <% if @evento.horario.present? %>
+                        <div class="destaque-detalhe">
+                            <i class="fas fa-clock"></i>
+                            <span><%= @evento.horario.strftime('%H:%M') %></span>
+                        </div>
+                    <% end %>
+                    <% if @evento.local.present? %>
+                        <div class="destaque-detalhe">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span><%= @evento.local %></span>
+                        </div>
+                    <% end %>
+                </div>
+                <%= link_to eventos_path, class: "btn btn-outline" do %>
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar para Eventos
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= render "shared/footer" %>
+<%= render "shared/back_to_top" %>

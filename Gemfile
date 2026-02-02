@@ -64,3 +64,10 @@ end
 # gem "dotenv-rails", "~> 3.2"
 
 gem "dotenv-rails", groups: [ :development, :test ]
+
+
+gem "devise", "~> 4.9"
+
+gem "administrate", github: "thoughtbot/administrate", branch: "main"
+
+gem "administrate-field-active_storage", "~> 1.0"
