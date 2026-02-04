@@ -67,3 +67,39 @@ footer {
         color: var(--text-muted);
         font-size: 0.9rem;
     }
+            /* ===== FOOTER ===== */
+        .footer {
+            padding: 40px 30px;
+            background: var(--primary-dark);
+            text-align: center;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .dev-signature {
+            font-size: 0.7rem; 
+            opacity: 0.6;    
+            margin-top: 5px;
+        }
+
+        .dev-signature a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .dev-signature a:hover {
+            opacity: 1;       
+            color: var(--gold);
+            text-decoration: underline;
+        }
