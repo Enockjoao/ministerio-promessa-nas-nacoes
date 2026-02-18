@@ -66,7 +66,7 @@ end
 gem "dotenv-rails", groups: [ :development, :test ]
 
 
-gem "devise", "~> 4.9"
+gem "devise", "~> 5.0"
 
 gem "administrate", github: "thoughtbot/administrate", branch: "main"
 
